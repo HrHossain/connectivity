@@ -3,6 +3,7 @@ import { Outlet ,Navigate } from "react-router-dom"
 import Header from "../component/Header"
 const ProtectedRoutes = () => {
     const auth = useSelector(state=>state.auth)
+    console.log(auth)
   return (
     <>
      {

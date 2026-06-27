@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import RegisterSVG from "../assets/images/auth_illustration.png"
 import { useDispatch, useSelector } from "react-redux"
 import { useState } from "react"
@@ -7,7 +7,7 @@ import { openModal } from "../features/modal/modalSlice"
 
 const RegistrationPage = () => {
    const dispatch = useDispatch()
-  const {isLoading,error,user,isAuthenticated} = useSelector(state => state.auth)
+  const {isLoading,error,user} = useSelector(state => state.auth)
 const [form,setForm] = useState({
   "email": "",
   "password": "",

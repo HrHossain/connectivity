@@ -1,9 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
+import { api } from "../../api"
 
 const initialState = {
     user:null,
-    token:localStorage.getItem("token") || null,
+    token:null,
     isAuthenticated:false,
     isLoading:false,
     isError:false
@@ -14,7 +15,7 @@ export const registerUser = createAsyncThunk(
     "auth/registration",
     async(userData,{rejectWithValue})=>{
         try{
-            const res = await axios.post(`{import.meta.env.VITE_SERVER_BASE_URL}/auth/register`,userData)
+            const res = await api.post(`/auth/register`,userData)
             
             return res.data
         }catch(error){
@@ -29,7 +30,7 @@ export const loginUser = createAsyncThunk(
     "auth/loginUser",
     async ( credentials, thunkApi ) => {
         try{
-            const response = await axios.post(`{import.meta.env.VITE_SERVER_BASE_URL}/auth/login`,credentials)
+            const response = await api.post(`/auth/login`,credentials)
             return response.data
         }catch(err){
             return thunkApi.rejectWithValue(err)
@@ -44,8 +45,11 @@ const authSlice = createSlice({
             state.user = null
             state.token = null
             state.isAuthenticated = false
-            localStorage.removeItem("token")
+            
         },
+        tokenUpdate:(state,action) =>{
+            state.token = action.payload.token
+        }
         
     },
     extraReducers:(builder)=>{
@@ -57,9 +61,8 @@ const authSlice = createSlice({
         .addCase(registerUser.fulfilled,(state,action)=>{
             state.isLoading = false;
             state.user = action.payload.user;
-            state.token = action.payload.token.token;
-            console.log(action.payload.token)
-            localStorage.setItem("token",action.payload.token)
+            state.token = action.payload.token;
+            
         })
         .addCase(registerUser.rejected,(state,action)=>{
             state.isLoading = false
@@ -74,8 +77,7 @@ const authSlice = createSlice({
         .addCase(loginUser.fulfilled,(state,action)=>{
             state.isLoading = false
             state.user = action.payload.user
-            state.token = action.payload.token.token
-            localStorage.setItem("token",action.payload.token.token)
+            state.token = action.payload.token
             state.isAuthenticated = true
         })
         .addCase(loginUser.rejected,(state)=>{
@@ -85,5 +87,5 @@ const authSlice = createSlice({
     }
 })
 
-export const { logout } = authSlice.actions
+export const { logout,tokenUpdate } = authSlice.actions
 export default authSlice.reducer
