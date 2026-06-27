@@ -14,7 +14,7 @@ export const registerUser = createAsyncThunk(
     "auth/registration",
     async(userData,{rejectWithValue})=>{
         try{
-            const res = await axios.post("http://localhost:3000/auth/register",userData)
+            const res = await axios.post(`{import.meta.env.VITE_SERVER_BASE_URL}/auth/register`,userData)
             
             return res.data
         }catch(error){
@@ -29,7 +29,7 @@ export const loginUser = createAsyncThunk(
     "auth/loginUser",
     async ( credentials, thunkApi ) => {
         try{
-            const response = await axios.post("http://localhost:3000/auth/login",credentials)
+            const response = await axios.post(`{import.meta.env.VITE_SERVER_BASE_URL}/auth/login`,credentials)
             return response.data
         }catch(err){
             return thunkApi.rejectWithValue(err)
@@ -57,7 +57,8 @@ const authSlice = createSlice({
         .addCase(registerUser.fulfilled,(state,action)=>{
             state.isLoading = false;
             state.user = action.payload.user;
-            state.token = action.payload.token;
+            state.token = action.payload.token.token;
+            console.log(action.payload.token)
             localStorage.setItem("token",action.payload.token)
         })
         .addCase(registerUser.rejected,(state,action)=>{
@@ -73,7 +74,8 @@ const authSlice = createSlice({
         .addCase(loginUser.fulfilled,(state,action)=>{
             state.isLoading = false
             state.user = action.payload.user
-            state.token = action.payload.token
+            state.token = action.payload.token.token
+            localStorage.setItem("token",action.payload.token.token)
             state.isAuthenticated = true
         })
         .addCase(loginUser.rejected,(state)=>{

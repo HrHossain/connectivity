@@ -20,6 +20,7 @@ const LoginPage = () => {
        
     } catch(err){
       // handle redux automatically
+      console.log(err.message)
     }
   }
 

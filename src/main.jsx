@@ -14,8 +14,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <App />
         <GlobalModal/>
       </Router>
-      
     </Provider>
-    
   </React.StrictMode>
 )
+
+
