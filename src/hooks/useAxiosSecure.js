@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { api } from '../api'
-import axios from 'axios'
 import { tokenUpdate } from '../features/auth/authSlice'
 
 const useAxiosSecure = () => {
