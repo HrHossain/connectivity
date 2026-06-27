@@ -1,26 +1,19 @@
-import PostHeader from './PostHeader'
-import PostBody from './PostBody'
-import PostLike from './PostLike'
-import PostComment from './PostComment'
-import PostShare from './PostShare'
-import CommentBox from './CommentBox'
-import CommentHistory from './CommentHistory'
+
+import { useSelector } from 'react-redux'
+import PostCard from './PostCard'
 
 const UserPostBoard = () => {
+  const {posts,loading} = useSelector(state=>state.profile)
+  console.log(posts)
+  if(loading){
+    return <p>post loading...</p>
+  }
   return (
-    <article className="card mt-6 lg:mt-8">
-        <PostHeader/>
-        <PostBody/>
-        <div className="flex items-center justify-between py-6 lg:px-10 lg:py-8">  
-         <PostLike/>
-          <PostComment/>
-          <PostShare/>
-        </div>
-        <div>
-          <CommentBox/>
-          <CommentHistory/>
-        </div>
-      </article>
+  <>
+   {
+    posts.length > 0 ? posts.map(post=><PostCard key={post.id} post={post}/>) : "No Posts Available"
+   }
+  </>
   )
 }
 

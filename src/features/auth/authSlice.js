@@ -1,9 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import  api  from "../../api"
+import { getRefreshToken, getToken, setRefreshToken, setToken } from "../../utils/tokenManager"
+import { RefreshCcw } from "lucide-react"
 
 const initialState = {
     user:null,
-    token:null,
+    token:{token:getToken() || null,refreshToken:getRefreshToken() || null},
     isAuthenticated:false,
     isLoading:false,
     isError:false
@@ -60,7 +62,7 @@ const authSlice = createSlice({
         .addCase(registerUser.fulfilled,(state,action)=>{
             state.isLoading = false;
             state.user = action.payload.user;
-            state.token = action.payload.token;
+            
             
         })
         .addCase(registerUser.rejected,(state,action)=>{
@@ -78,6 +80,8 @@ const authSlice = createSlice({
             state.user = action.payload.user
             state.token = action.payload.token
             state.isAuthenticated = true
+            setToken(action.payload.token.token)
+            setRefreshToken(action.payload.token.refreshToken)
         })
         .addCase(loginUser.rejected,(state)=>{
             state.isLoading = false

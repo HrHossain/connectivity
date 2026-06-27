@@ -1,8 +1,7 @@
 
 // axiosSecure.js
 import axios from 'axios'
-import { store } from '../app/store' // আপনার redux store-এর path
-import { tokenUpdate, logout } from '../features/auth/authSlice'
+import { getRefreshToken, getToken, setToken } from '../utils/tokenManager'
 
 
 const secureApi = axios.create({
@@ -13,7 +12,7 @@ const secureApi = axios.create({
 // ---------- Request Interceptor ----------
 secureApi.interceptors.request.use(
   (config) => {
-    const { token } = store.getState().auth.token
+    const  token  = getToken()
     if (token) {
       config.headers.Authorization = `Bearer ${token}`
     }
@@ -63,7 +62,8 @@ secureApi.interceptors.response.use(
       isRefreshing = true
 
       try {
-        const { refreshToken } = store.getState().auth.token
+         
+        const  refreshToken  = getRefreshToken()
 
         const res = await axios.post(
           `${import.meta.env.VITE_SERVER_BASE_URL}/auth/refresh-token`,
@@ -71,15 +71,17 @@ secureApi.interceptors.response.use(
         )
         const { token: newToken } = res.data
 
-        // store সরাসরি dispatch (hook ছাড়াই)
-        store.dispatch(tokenUpdate(newToken))
+        
+console.log(newToken)
+setToken(newToken)
+        // store.dispatch(tokenUpdate(newToken))
 
         processQueue(null, newToken)
         originalRequest.headers.Authorization = `Bearer ${newToken}`
         return secureApi(originalRequest)
       } catch (refreshError) {
         processQueue(refreshError, null)
-        store.dispatch(logout()) // refresh token-ও invalid হলে logout করাই ভালো
+        // store.dispatch(logout()) // refresh token-ও invalid হলে logout করাই ভালো
         return Promise.reject(refreshError)
       } finally {
         isRefreshing = false
