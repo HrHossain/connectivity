@@ -1,15 +1,17 @@
 import HomeIcon from "../assets/icons/home.svg"
 import NotificationIcon from "../assets/icons/notification.svg"
 import LogoutIcon from "../assets/icons/logout.svg"
-import Avatar  from "../assets/images/avatars/avatar_1.png"
 import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { logout } from "../features/auth/authSlice"
+import { UserRoundArrowLeft } from "lucide-react"
 
 
 const Header = () => {
   const {user} = useSelector(state => state.auth)
-  console.log(user)
+  const {profile} = useSelector(state=> state.profile)
+  console.log(profile)
+  const me = profile ?? user
    const dispatch =  useDispatch()
   return (
     <nav className="sticky top-0 z-50 border-b border-[#3F3F3F] bg-[#1E1F24] py-4">
@@ -19,7 +21,7 @@ const Header = () => {
         to="/"
         className="inline-flex items-center text-2xl font-extrabold tracking-tight text-white transition-colors duration-200 hover:text-lwsGreen focus:outline-none focus:ring-2 focus:ring-lwsGreen focus:ring-offset-2 focus:ring-offset-deepDark"
       >
-  <span className="text-lwsGreen">Con</span>nectivity
+  <span className="text-blue-800">Con</span>nectivity
 </Link>
       
 
@@ -36,9 +38,12 @@ const Header = () => {
         </button>
 
         <Link to="me" className="flex-center !ml-8 gap-3">
-          <span className="text-lg font-medium lg:text-xl">{user.firstName}</span>
-          <img className="max-h-[32px] max-w-[32px] lg:max-h-[44px] lg:max-w-[44px]"
-            src={Avatar} alt="" />
+          <span className="text-lg font-medium lg:text-xl">{me?.firstName}</span>
+          {
+            me?.avatar ? <img className="max-h-[32px] max-w-[32px] lg:max-h-[44px] lg:max-w-[44px]"
+            src={`${import.meta.env.VITE_SERVER_BASE_URL}/${me?.avatar}`} alt="" /> : 
+            <UserRoundArrowLeft />
+          }
         </Link>
       </div>
       
