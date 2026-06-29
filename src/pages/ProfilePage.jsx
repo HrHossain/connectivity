@@ -9,7 +9,7 @@ const ProfilePage = () => {
 
   useEffect(()=>{
 
-    dispatch(fetchProfile(user.id))
+    dispatch(fetchProfile(user?.id))
 
   },[])
   return (
