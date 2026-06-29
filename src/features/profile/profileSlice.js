@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import secureApi from "../../api/axiosSecure";
+import { useAsyncValue } from "react-router-dom";
 
 const initialState ={
     user:null,
@@ -37,6 +38,19 @@ export const editProfileBio = createAsyncThunk(
     }
 )
 
+export const editProfileAvatar = createAsyncThunk(
+    "profile/avatar",
+    async ({id,formData},thunkAPI)=>{
+        try{
+            const res = await secureApi.post(`profile/${id}/avatar`,formData)
+            console.log(res)
+            return res?.data
+        }catch(err){
+            thunkAPI.rejectWithValue(err.response?.data?.message || "Failed to update profile!")
+        }
+    }
+)
+
 const profileSlice = createSlice({
 
     name:'profile',
@@ -68,11 +82,27 @@ const profileSlice = createSlice({
         state.loading = false;
         state.profile = action.payload;
         console.log(action)
-
-        // অথবা শুধু bio return করলে
-        // state.profile.bio = action.payload.bio;
       })
       .addCase(editProfileBio.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+    //   edit avatar
+
+     .addCase(editProfileAvatar.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(editProfileAvatar.fulfilled, (state,action) => {
+        state.loading = false;
+        state.profile = {
+            ...state.profile,
+            avatar:action?.payload?.avatar
+        }
+        console.log(action)
+       
+      })
+      .addCase(editProfileAvatar.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });

@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux"
-import EditIcon from "../../assets/icons/edit.svg"
-import { UserRoundArrowLeft } from "lucide-react"
 import Bio from "./Bio"
+import ProfilePic from "./ProfilePic"
 const ProfileInfo = () => {
   const {profile,loading} = useSelector(state=>state.profile)
   
@@ -11,23 +10,8 @@ const ProfileInfo = () => {
           {
             loading ? "profile is loading": null
           }
-            <div
-            className="relative mb-8 max-h-[180px] max-w-[180px] rounded-full lg:mb-11 lg:max-h-[218px] lg:max-w-[218px]"
-          >
-           
-
-            {
-            profile?.avatar ? <img className="max-w-full"
-            src={`${import.meta.env.VITE_SERVER_BASE_URL}/${profile?.avatar}`} alt="" /> : 
-            <UserRoundArrowLeft />
-          }
-
-            <button
-              className="flex-center absolute bottom-4 right-4 h-7 w-7 rounded-full bg-black/50 hover:bg-black/80"
-            >
-            <img src={EditIcon} alt="Edit" />
-            </button>
-          </div>
+           {/* profile avatar */}
+           <ProfilePic profile={profile}/>
           
           <div>
             <h3 className="mt-12 text-2xl font-semibold text-white lg:text-[28px]">

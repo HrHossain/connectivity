@@ -4,7 +4,8 @@ import PostCard from './PostCard'
 
 const UserPostBoard = () => {
   const {posts,loading} = useSelector(state=>state.profile)
-  console.log(posts)
+  const {user} = useSelector(state=>state.auth)
+  console.log(user)
   if(loading){
     return <p>post loading...</p>
   }
