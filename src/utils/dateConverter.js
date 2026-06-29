@@ -10,8 +10,16 @@ export const getDateDifferenceFromNow = (fromDate) => {
     let message;
 
     if (hourDifference > 0) {
-        message = `${hourDifference} hour`;
+        let day = Math.round(hourDifference/24)
+        if( day > 365){
+            message  =`${Math.round(day/365)} year`
+        }else{
+            message = `${Math.round(hourDifference)} hours` ;
+        }
+        
     }
+
+   
 
     if (minuteDifference > 0) {
         message = message

@@ -8,10 +8,11 @@ import CommentBox from './CommentBox'
 import CommentHistory from './CommentHistory'
 
 const PostCard = ({post}) => {
+    console.log(post)
   return (
     <article className="card mt-6 lg:mt-8">
         <PostHeader post={post}/>
-        <PostBody post={post}/>
+        <PostBody poster={post?.image} content={post?.content}/>
         <div className="flex items-center justify-between py-6 lg:px-10 lg:py-8">  
          <PostLike post={post}/>
           <PostComment post={post}/>
@@ -19,7 +20,7 @@ const PostCard = ({post}) => {
         </div>
         <div>
           <CommentBox post={post}/>
-          <CommentHistory post={post}/>
+          
         </div>
       </article>
   )

@@ -5,6 +5,7 @@ import DotsIcon from "../../assets/icons/3dots.svg"
 import UserAction from "./UserAction"
 import { useState } from "react"
 import useAvatar from "../../hooks/useAvatar"
+import { getDateDifferenceFromNow } from "../../utils/dateConverter"
 
 const PostHeader = ({post}) => {
         const [ show, setToggle ] = useState(false)
@@ -19,7 +20,7 @@ const PostHeader = ({post}) => {
               <h6 className="text-lg lg:text-xl">{post?.author?.name}</h6>
               <div className="flex items-center gap-1.5">
                 <img src={TimeIcon} alt="time" />
-                <span className="text-sm text-gray-400 lg:text-base">12 min ago</span>
+                <span className="text-sm text-gray-400 lg:text-base">{getDateDifferenceFromNow(post?.createAt)}</span>
               </div>
             </div>
           </div>
