@@ -13,8 +13,12 @@ useEffect(()=>{
  dispatch(getPosts())
 },[])
 
-if(loading){
-  return <LoaderCircle />
+if (loading) {
+  return (
+    <div className="flex min-h-screen items-center justify-center">
+      <LoaderCircle spinner={true} className="h-10 w-10 animate-spin" />
+    </div>
+  );
 }
 if(error){
   return <p>{error?.message}</p>

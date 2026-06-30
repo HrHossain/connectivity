@@ -471,7 +471,7 @@
       "lastName": "Hasan",
       "avatar": "uploads/avatar/avatar-1782746896769-70827023.png",
       "email": "saadh392@mail.com",
-      "bio": "A Ghost in bangladesh is harmful!"
+      "bio": "A Ghost in bangladesh is harmful! our bangladesh"
     },
     {
       "id": "1aeef0f0-77ba-456b-8b5b-d4145a9b5410",
@@ -495,8 +495,41 @@
       "password": "$2b$08$2EsHS4vxbQs60Q53KOHMOeNNUak8JW75ojPr.m1TtUoRweEALs8ZW",
       "firstName": "Hridoy",
       "lastName": "Hossain",
+      "avatar": "uploads/avatar/avatar-1782798585832-515079735.png",
+      "email": "mofazzelhossain185@gmail.com",
+      "bio": "my name is mofazzel . i am doing well in software engineering.we can change our society.\n"
+    },
+    {
+      "id": "46906782-a063-463e-b6a4-978453ac0a19",
+      "password": "$2b$08$unnayhEXLLAavZ.D0uh/x.kv5kXlnbMNHE867A5m2TWGWW7OQNhva",
+      "firstName": "ekram",
+      "lastName": "mia",
       "avatar": null,
-      "email": "mofazzelhossain185@gmail.com"
+      "email": "mia@gmail.com"
+    },
+    {
+      "id": "be9e3037-ea08-4c04-bdac-6e5527d35ee2",
+      "password": "$2b$08$6jNx.UijMyYEFLd25EGkIuOA4PR3XwkHuEAtNJRETGw.UvhZSFYsW",
+      "firstName": "Hridoy",
+      "lastName": "khan",
+      "avatar": null,
+      "email": "khan@gmail.com"
+    },
+    {
+      "id": "2086da84-a5fc-4e6d-8fde-46ab175726e6",
+      "password": "$2b$08$4r9x.UIciL78xHeyMWJC5.y6BlukZljp4IcEiEnL4cLGLUeawFQvC",
+      "firstName": "Hridoy",
+      "lastName": "khan",
+      "avatar": null,
+      "email": "khan185@gmail.com"
+    },
+    {
+      "id": "2a4ecec8-7819-4bc9-91d5-347375e862d6",
+      "password": "$2b$08$ZEBROfVbHKI8vnmIhKKIW.8x9ektpioR2hYcjvSbQwP02mPIUtmx6",
+      "firstName": "Hridoy",
+      "lastName": "khan",
+      "avatar": null,
+      "email": "khann185@gmail.com"
     }
   ]
 }

@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import  api  from "../../api"
 import { getRefreshToken, getToken, setRefreshToken, setToken } from "../../utils/tokenManager"
-import { RefreshCcw } from "lucide-react"
+
 
 const initialState = {
     user:null,
@@ -17,8 +17,11 @@ export const registerUser = createAsyncThunk(
     async(userData,{rejectWithValue})=>{
         try{
             const res = await api.post(`/auth/register`,userData)
+            if(res.status === 201){
+                return res.data
+            }
+            throw res
             
-            return res.data
         }catch(error){
            
             return rejectWithValue(error.response?.data?.error || "Something went wrong")
@@ -50,7 +53,10 @@ const authSlice = createSlice({
         },
         tokenUpdate:(state,action) =>{
             state.token = action.payload.token
-        }
+        },
+        resetAuthError: (state) => {
+      state.error = null
+    },
         
     },
     extraReducers:(builder)=>{
@@ -90,5 +96,5 @@ const authSlice = createSlice({
     }
 })
 
-export const { logout,tokenUpdate } = authSlice.actions
+export const { logout,tokenUpdate,resetAuthError } = authSlice.actions
 export default authSlice.reducer
