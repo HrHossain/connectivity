@@ -1,6 +1,9 @@
+import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
 const NotFoundPage = () => {
+  const {token} = useSelector(s=>s.auth)
+  console.log(token)
   return (
     <main className="flex min-h-screen items-center justify-center bg-deepDark px-4">
       <div className="text-center max-w-md">

@@ -10,7 +10,7 @@ import { UserRoundArrowLeft } from "lucide-react"
 const Header = () => {
   const {user} = useSelector(state => state.auth)
   const {profile} = useSelector(state=> state.profile)
-  console.log(profile)
+  
   const me = profile ?? user
    const dispatch =  useDispatch()
   return (

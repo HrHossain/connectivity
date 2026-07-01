@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import secureApi from "../../api/axiosSecure";
 
+
 export const getPosts = createAsyncThunk(
     "fetch/post",
     async (_,thunkAPI)=>{
@@ -13,6 +14,23 @@ export const getPosts = createAsyncThunk(
         }
     }
 )
+
+export const createPost = createAsyncThunk(
+      "create/post",
+      async (data,thunkAPI) =>{
+        try{
+          const res = await secureApi.post("posts",data)
+          if(res.status === 200){
+            return res?.data
+          }
+
+        }catch(err){
+          thunkAPI.rejectWithValue(err.response?.data?.message || "Data not uploaded!")
+        }
+      }
+    )
+
+
  const postSlice = createSlice({
     name:"post",
     initialState:{
@@ -20,7 +38,11 @@ export const getPosts = createAsyncThunk(
         loading:false,
         error:null,
     },
-    reducers:{},
+    reducers:{
+      resetError:(state)=>{
+        state.error = null
+      }
+    },
      extraReducers: (builder) => {
     builder
 
@@ -47,24 +69,21 @@ export const getPosts = createAsyncThunk(
       // CREATE POST
       // =========================
 
-    //   .addCase(createPost.pending, (state) => {
-    //     state.loading = true;
-    //     state.error = null;
-    //   })
+      .addCase(createPost.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
 
-    //   .addCase(createPost.fulfilled, (state, action) => {
-    //     state.loading = false;
-    //     state.success = true;
+      .addCase(createPost.fulfilled, (state,action) => {
+        state.loading = false;
+        state.success = true;
+        state.posts = [action?.payload,...state.posts]
+      })
 
-    //     state.posts.unshift(action.payload);
-
-    //     state.message = "Post Created Successfully";
-    //   })
-
-    //   .addCase(createPost.rejected, (state, action) => {
-    //     state.loading = false;
-    //     state.error = action.payload;
-    //   })
+      .addCase(createPost.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
 
       // =========================
       // UPDATE POST
@@ -72,9 +91,7 @@ export const getPosts = createAsyncThunk(
 
     //   .addCase(updatePost.fulfilled, (state, action) => {
     //     state.loading = false;
-
     //     state.success = true;
-
     //     state.posts = state.posts.map((post) =>
     //       post.id === action.payload.id ? action.payload : post
     //     );
@@ -112,4 +129,5 @@ export const getPosts = createAsyncThunk(
   },
  })
 
+ export const {resetError} = postSlice.actions
  export default postSlice.reducer

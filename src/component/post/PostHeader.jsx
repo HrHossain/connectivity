@@ -6,10 +6,14 @@ import UserAction from "./UserAction"
 import { useState } from "react"
 import useAvatar from "../../hooks/useAvatar"
 import { getDateDifferenceFromNow } from "../../utils/dateConverter"
+import { useSelector } from "react-redux"
 
 const PostHeader = ({post}) => {
         const [ show, setToggle ] = useState(false)
         const {avatarURL} = useAvatar(post)
+        const {user} = useSelector(s=>s.auth)
+        const isMe = user?.id === post?.author?.id
+        
        
   return (
     <header className="flex items-center justify-between gap-4">
@@ -24,12 +28,14 @@ const PostHeader = ({post}) => {
               </div>
             </div>
           </div>
-          <div className="relative">
+          {
+            isMe && <div className="relative">
             <button onClick={()=>setToggle(prev=>!prev)}>
               <img src={DotsIcon} alt="3dots of Action" />
             </button>
             { show && <UserAction /> }
           </div>  
+          }
         </header>
         
   )

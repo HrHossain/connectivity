@@ -645,6 +645,245 @@
       "comments": [],
       "likes": [],
       "createAt": "2024-02-25T07:16:53.349Z"
+    },
+    {
+      "id": "5d1e6731-78bf-4f89-9e61-d1fd8b011ec8",
+      "content": "we love our country",
+      "image": null,
+      "postType": "text",
+      "author": {
+        "id": "c5d4cd7a-add6-41a6-b356-fe3ccdba1381",
+        "name": "Hridoy Hossain",
+        "avatar": "uploads/avatar/avatar-1782904269468-517768042.png"
+      },
+      "comments": [
+        {
+          "id": "024e1676-f8c9-4f9b-ae4a-d9d15a5a0bda",
+          "comment": "first post in my life",
+          "createdAt": "2026-07-01T11:35:27.479Z",
+          "author": {
+            "id": "c5d4cd7a-add6-41a6-b356-fe3ccdba1381",
+            "name": "Hridoy Hossain",
+            "avatar": "uploads/avatar/avatar-1782904269468-517768042.png"
+          }
+        }
+      ],
+      "likes": [
+        "c5d4cd7a-add6-41a6-b356-fe3ccdba1381"
+      ],
+      "createAt": "2026-07-01T11:34:44.405Z"
+    },
+    {
+      "id": "1de66be8-5a7f-4fc6-9187-6ad977b8721d",
+      "content": "Our new Gents park shop logo",
+      "image": null,
+      "postType": "text",
+      "author": {
+        "id": "c5d4cd7a-add6-41a6-b356-fe3ccdba1381",
+        "name": "Hridoy Hossain",
+        "avatar": "uploads/avatar/avatar-1782904269468-517768042.png"
+      },
+      "comments": [],
+      "likes": [],
+      "createAt": "2026-07-01T11:36:13.277Z"
+    },
+    {
+      "id": "60a29f60-f6db-4e4c-84bc-1b57ec51e5c3",
+      "content": "",
+      "image": null,
+      "postType": "text",
+      "author": {
+        "id": "c5d4cd7a-add6-41a6-b356-fe3ccdba1381",
+        "name": "Hridoy Hossain",
+        "avatar": "uploads/avatar/avatar-1782904269468-517768042.png"
+      },
+      "comments": [],
+      "likes": [],
+      "createAt": "2026-07-01T11:40:43.715Z"
+    },
+    {
+      "id": "f97bae44-89fe-4a83-bed7-7099aef7ae86",
+      "content": "",
+      "image": null,
+      "postType": "text",
+      "author": {
+        "id": "c5d4cd7a-add6-41a6-b356-fe3ccdba1381",
+        "name": "Hridoy Hossain",
+        "avatar": "uploads/avatar/avatar-1782904269468-517768042.png"
+      },
+      "comments": [],
+      "likes": [],
+      "createAt": "2026-07-01T11:52:03.540Z"
+    },
+    {
+      "id": "2ca3f28e-439f-4a6e-b6d4-9fa42eafc514",
+      "content": "",
+      "image": null,
+      "postType": "text",
+      "author": {
+        "id": "c5d4cd7a-add6-41a6-b356-fe3ccdba1381",
+        "name": "Hridoy Hossain",
+        "avatar": "uploads/avatar/avatar-1782904269468-517768042.png"
+      },
+      "comments": [],
+      "likes": [],
+      "createAt": "2026-07-01T11:53:37.646Z"
+    },
+    {
+      "id": "c1b1d25e-8eec-43d7-a652-0d732ba89b4c",
+      "content": "we",
+      "image": null,
+      "postType": "text",
+      "author": {
+        "id": "c5d4cd7a-add6-41a6-b356-fe3ccdba1381",
+        "name": "Hridoy Hossain",
+        "avatar": "uploads/avatar/avatar-1782904269468-517768042.png"
+      },
+      "comments": [],
+      "likes": [],
+      "createAt": "2026-07-01T11:54:12.847Z"
+    },
+    {
+      "id": "6166f569-5ea8-4d1d-b1ac-3c503fccfadd",
+      "content": "our shop logo",
+      "image": "uploads/posts/image-1782906887378-219055906.jpg",
+      "postType": "image",
+      "author": {
+        "id": "c5d4cd7a-add6-41a6-b356-fe3ccdba1381",
+        "name": "Hridoy Hossain",
+        "avatar": "uploads/avatar/avatar-1782904269468-517768042.png"
+      },
+      "comments": [],
+      "likes": [],
+      "createAt": "2026-07-01T11:54:47.444Z"
+    },
+    {
+      "id": "988e08c6-ff80-49e2-98ae-a4e7bbbdf093",
+      "content": "we are friends",
+      "image": "uploads/posts/image-1782907813271-153209091.png",
+      "postType": "image",
+      "author": {
+        "id": "c5d4cd7a-add6-41a6-b356-fe3ccdba1381",
+        "name": "Hridoy Hossain",
+        "avatar": "uploads/avatar/avatar-1782904269468-517768042.png"
+      },
+      "comments": [],
+      "likes": [],
+      "createAt": "2026-07-01T12:10:13.685Z"
+    },
+    {
+      "id": "31e2dfc4-6c02-454b-bf81-78907fe1c874",
+      "content": "",
+      "image": null,
+      "postType": "text",
+      "author": {
+        "id": "c5d4cd7a-add6-41a6-b356-fe3ccdba1381",
+        "name": "Hridoy Hossain",
+        "avatar": "uploads/avatar/avatar-1782904269468-517768042.png"
+      },
+      "comments": [],
+      "likes": [],
+      "createAt": "2026-07-01T14:32:46.662Z"
+    },
+    {
+      "id": "85dd0b66-7048-4643-8b74-64c60149b458",
+      "content": "we are developer!",
+      "image": null,
+      "postType": "text",
+      "author": {
+        "id": "c5d4cd7a-add6-41a6-b356-fe3ccdba1381",
+        "name": "Hridoy Hossain",
+        "avatar": "uploads/avatar/avatar-1782904269468-517768042.png"
+      },
+      "comments": [],
+      "likes": [],
+      "createAt": "2026-07-01T14:46:02.536Z"
+    },
+    {
+      "id": "69656326-56e7-4b20-9562-a3ce450e8c9a",
+      "content": "love",
+      "image": null,
+      "postType": "text",
+      "author": {
+        "id": "c5d4cd7a-add6-41a6-b356-fe3ccdba1381",
+        "name": "Hridoy Hossain",
+        "avatar": "uploads/avatar/avatar-1782904269468-517768042.png"
+      },
+      "comments": [],
+      "likes": [],
+      "createAt": "2026-07-01T15:42:42.842Z"
+    },
+    {
+      "id": "ef598750-6d36-40ff-b246-0f45913c5ea0",
+      "content": "we",
+      "image": null,
+      "postType": "text",
+      "author": {
+        "id": "c5d4cd7a-add6-41a6-b356-fe3ccdba1381",
+        "name": "Hridoy Hossain",
+        "avatar": "uploads/avatar/avatar-1782904269468-517768042.png"
+      },
+      "comments": [],
+      "likes": [],
+      "createAt": "2026-07-01T15:55:09.571Z"
+    },
+    {
+      "id": "8633c119-1016-4bb3-9c22-0116fa1010cc",
+      "content": "wewe",
+      "image": null,
+      "postType": "text",
+      "author": {
+        "id": "c5d4cd7a-add6-41a6-b356-fe3ccdba1381",
+        "name": "Hridoy Hossain",
+        "avatar": "uploads/avatar/avatar-1782904269468-517768042.png"
+      },
+      "comments": [],
+      "likes": [],
+      "createAt": "2026-07-01T15:57:29.588Z"
+    },
+    {
+      "id": "8f6ccdad-9338-41ab-8d6e-784b36c21922",
+      "content": "we",
+      "image": null,
+      "postType": "text",
+      "author": {
+        "id": "c5d4cd7a-add6-41a6-b356-fe3ccdba1381",
+        "name": "Hridoy Hossain",
+        "avatar": "uploads/avatar/avatar-1782904269468-517768042.png"
+      },
+      "comments": [],
+      "likes": [],
+      "createAt": "2026-07-01T15:59:59.259Z"
+    },
+    {
+      "id": "2a525c93-fdee-432f-98ab-7e7247810e95",
+      "content": "we devs",
+      "image": null,
+      "postType": "text",
+      "author": {
+        "id": "c5d4cd7a-add6-41a6-b356-fe3ccdba1381",
+        "name": "Hridoy Hossain",
+        "avatar": "uploads/avatar/avatar-1782904269468-517768042.png"
+      },
+      "comments": [],
+      "likes": [],
+      "createAt": "2026-07-01T16:01:11.394Z"
+    },
+    {
+      "id": "ac0ab8fb-1567-4199-a22a-30662db49d6f",
+      "content": "we are bangladeshi",
+      "image": null,
+      "postType": "text",
+      "author": {
+        "id": "c5d4cd7a-add6-41a6-b356-fe3ccdba1381",
+        "name": "Hridoy Hossain",
+        "avatar": "uploads/avatar/avatar-1782904269468-517768042.png"
+      },
+      "comments": [],
+      "likes": [
+        "c5d4cd7a-add6-41a6-b356-fe3ccdba1381"
+      ],
+      "createAt": "2026-07-01T16:02:41.862Z"
     }
   ],
   "comments": [],
@@ -680,7 +919,7 @@
       "password": "$2b$08$2EsHS4vxbQs60Q53KOHMOeNNUak8JW75ojPr.m1TtUoRweEALs8ZW",
       "firstName": "Hridoy",
       "lastName": "Hossain",
-      "avatar": "uploads/avatar/avatar-1782798585832-515079735.png",
+      "avatar": "uploads/avatar/avatar-1782904269468-517768042.png",
       "email": "mofazzelhossain185@gmail.com",
       "bio": "my name is mofazzel . i am doing well in software engineering.we can change our society.\n"
     },

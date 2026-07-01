@@ -1,18 +1,35 @@
-import Avatar from '../assets/images/avatars/avatar_1.png'
+import { useState } from 'react';
+import PostEntry from './post/PostEntry';
+import { useSelector } from 'react-redux';
 
 const WhatsOnMind = () => {
+  const {user:authUser} = useSelector(s=>s.auth)
+  const {profile} = useSelector(s=>s.profile)
+  const [showPostEntry, setShowPostEntry] = useState(false);
+
+  const user = profile ?? authUser
   return (
-    <div className="card">
+    <>
+    {
+      showPostEntry ? (<PostEntry onPostEntryClose={() => setShowPostEntry(false)}/>) : (
+        <div className="card">
             <div className="flex-center mb-3 gap-2 lg:gap-4">
               <img className="max-w-10 max-h-10 rounded-full lg:max-h-[58px] lg:max-w-[58px]"
-                src={Avatar} alt="avatar" />
+                src={`${import.meta.env.VITE_SERVER_BASE_URL}/${
+                                user?.avatar
+                            }`} alt="avatar" />
 
               <div className="flex-1">
                 <textarea className="h-16 w-full rounded-md bg-lighterDark p-3 focus:outline-none sm:h-20 sm:p-6" name="post"
-                  id="post" placeholder="What's on your mind?"></textarea>
+                  id="post" placeholder="What's on your mind?"
+                  onClick={()=>setShowPostEntry(true)}
+                  ></textarea>
               </div>
         </div>
       </div>
+      )
+    }
+    </>
   )
 }
 

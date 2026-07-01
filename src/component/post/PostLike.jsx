@@ -20,7 +20,7 @@ const PostLike = ({post}) => {
     }
 
   }
-  console.log(liked)
+  
   return (
      <button
       onClick={handleLike}

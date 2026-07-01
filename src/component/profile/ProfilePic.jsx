@@ -64,7 +64,7 @@ const ProfilePic = () => {
            
 
             {
-            profile?.avatar ? <img className="max-w-full"
+            profile?.avatar ? <img className="w-[200px] h-[200px] rounded-full"
             src={`${import.meta.env.VITE_SERVER_BASE_URL}/${profile?.avatar}`} alt={profile?.firstName} /> : 
             <UserRoundArrowLeft />
           }

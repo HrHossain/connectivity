@@ -56,8 +56,7 @@ const RegistrationPage = () => {
     const { confirmPassword, ...payload } = form
 
     try {
-      // unwrap() throws if the thunk was rejected, so success/error
-      // paths are handled here instead of being inferred from render-time state
+      
       await dispatch(registerUser(payload)).unwrap()
 
       dispatch(
